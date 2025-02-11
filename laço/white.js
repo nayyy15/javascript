@@ -19,9 +19,9 @@ let numero = 3
 let multiplicador = 1
 while (multiplicador <= 4) {
     let resultado = numero * multiplicador
-    console.log(resultado)
+    //console.log(resultado)
     console.log(numero, "x", multiplicador, "=",  resultado) //assim fica mais bonito
-    multiplicador += //outra opção para o ++
+    multiplicador += 1 //outra opção para o ++
 }
 ////////////////
 console.log("quarto exemplo")
