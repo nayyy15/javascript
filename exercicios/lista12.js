@@ -55,7 +55,7 @@ let maioridade = (idade) => {
     console.log("Menor de idade!")
 }
 console.log(maioridade(idade))
-console.log("ㅤ")
+
 
 console.log("EX7")
 //ex7
@@ -67,4 +67,4 @@ let media = (numero) => {
     return resultado
 }
 console.log(media(nota1,nota2,nota3))
-console.log("ㅤ")
+
