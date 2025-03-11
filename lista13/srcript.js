@@ -75,4 +75,3 @@ botaoParag3.addEventListener("click", function () {
     parag3.style.fontSize = "20px"
     parag3.style.borderRadius = "20px"  
 })
-
