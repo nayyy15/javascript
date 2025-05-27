@@ -1,0 +1,59 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Poetsen+One&family=Righteous&display=swap');
+
+body {
+    background-color: #ead7ac;
+    color: var;
+    font-family: 'Righteous', Static;
+    text-align: center;
+    padding: 50px;
+}
+
+h1 {
+    margin-bottom: 20px;
+    color:#ce6ba0;
+}
+
+#contador {
+    font-size: 2em;
+    margin-bottom: 20px;
+    color: #ffffff;
+    background-color: #f1a0b8;
+    display: inline-block;
+    padding: 10px 20px;
+    border-radius: 15px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.mensagem-final {
+    font-size: 2em;
+    color: #f07eaa;
+    animation: piscar 1s infinite;
+}
+
+@keyframes piscar {
+    0% { opacity: 1; }
+    50% { opacity: 0.5; }
+    100% { opacity: 1; }
+}
+
+.barra-container {
+    background-color: var(--cor-barra-bg);
+    border-radius: 30px;
+    width: 80%;
+    margin: 20px auto;
+    height: 30px;
+    overflow: hidden;
+    box-shadow: inset 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.barra {
+    background-color: #f1a0b8;
+    height: 100%;
+    width: 0%;
+    transition: width 1s linear;
+}
+
+.icones {
+    font-size: 50px; 
+}

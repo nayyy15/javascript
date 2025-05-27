@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contagem Regressiva</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <h1>Contagem Regressiva para o Aniversário do Senai!</h1>
+
+    <div id="contador"></div>
+
+    <div class="barra-container">
+        <div class="barra" id="barraProgresso"></div>
+    </div>
+    <div class="icones">🎂🥳🪅🎉🪩</div>
+    <audio id="somFinal">
+        <source src="aniversario.mp3" type="audio/mp3">
+    </audio>
+
+    <script>
+        const dataAlvo = new Date(2026, 0, 22, 0, 0, 0); 
+        const dataInicial = new Date();
+
+        function formatarNumero(numero) {
+            return numero < 10 ? '0' + numero : numero;
+        }
+
+        function atualizarContador() {
+            const agora = new Date();
+            const diferenca = dataAlvo - agora;
+            const total = dataAlvo - dataInicial;
+
+            if (diferenca <= 0) {
+                document.getElementById("contador").innerHTML = `<div class="mensagem-final">Feliz Aniverário!!🎉</div>`;
+                document.getElementById("barraProgresso").style.width = '100%';
+                document.getElementById("somFinal").play();
+                clearInterval(intervalo);
+                return;
+            }
+
+            const dias = Math.floor(diferenca / (1000 * 60 * 60 * 24));
+            const horas = Math.floor((diferenca % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutos = Math.floor((diferenca % (1000 * 60 * 60)) / (1000 * 60));
+            const segundos = Math.floor((diferenca % (1000 * 60)) / 1000);
+
+            document.getElementById("contador").textContent =
+                `${formatarNumero(dias)}d ${formatarNumero(horas)}h ${formatarNumero(minutos)}m ${formatarNumero(segundos)}s`;
+
+            const progresso = 100 - (diferenca / total * 100);
+            document.getElementById("barraProgresso").style.width = progresso + '%';
+        }
+
+        const intervalo = setInterval(atualizarContador, 1000);
+        atualizarContador();
+    </script>
+</body>
+</html>
