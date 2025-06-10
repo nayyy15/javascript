@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Floresta Mágica</title>
+</head>
+<body>
+    <h1>Floresta Mágica</h1>
+    <div id="historia">
+        <p>Você está na frente de uma floresta mágica. Deseja entrar?</p>
+        <button onclick="escolha1('sim')">Entrar na floresta</button>
+        <button onclick="escolha1('nao')">Voltar para casa</button>
+    </div>
+
+    <script>
+        function escolha1(resposta) {
+            const div = document.getElementById("historia");
+            if (resposta === "sim") {
+                div.innerHTML = `
+                    <p>Você encontra dois caminhos. Qual deseja seguir?</p>
+                    <button onclick="escolha2('esquerda')">Caminho da esquerda</button>
+                    <button onclick="escolha2('direita')">Caminho da direita</button>
+                `;
+            } else {
+                div.innerHTML = `<p>Você voltou para casa em segurança. FIM</p>`;
+            }
+        }
+
+        function escolha2(caminho) {
+            const div = document.getElementById("historia");
+            if (caminho === "esquerda") {
+                div.innerHTML = `
+                    <p>Você encontra um dragão adormecido. O que deseja fazer?</p>
+                    <button onclick="escolha3('lutar')">Atacar o dragão</button>
+                    <button onclick="escolha3('fugir')">Fugir silenciosamente</button>
+                `;
+            } else {
+                div.innerHTML = `
+                    <p>Você encontra um baú misterioso no meio da trilha. O que deseja fazer?</p>
+                    <button onclick="escolha3('abrir')">Abrir o baú</button>
+                    <button onclick="escolha3('ignorar')">Ignorar e seguir</button>
+                `;
+            }
+        }
+
+        function escolha3(acao) {
+            const div = document.getElementById("historia");
+            if (acao === "lutar") {
+                div.innerHTML = `
+                    <p>O dragão acorda e você precisa decidir rápido!</p>
+                    <button onclick="escolha4('esquivar')">Esquivar do ataque</button>
+                    <button onclick="escolha4('esconder')">Se esconder atrás de uma árvore</button>
+                `;
+            } else if (acao === "fugir") {
+                div.innerHTML = `
+                    <p>Você escapa, mas encontra um rio mágico. Como atravessar?</p>
+                    <button onclick="escolha4('ponte')">Usar a ponte velha</button>
+                    <button onclick="escolha4('nadar')">Tentar nadar</button>
+                `;
+            } else if (acao === "abrir") {
+                div.innerHTML = `
+                    <p>O baú era uma armadilha! Você é sugado para outra dimensão. Como reagir?</p>
+                    <button onclick="escolha4('explorar')">Explorar o novo mundo</button>
+                    <button onclick="escolha4('gritar')">Gritar por ajuda</button>
+                `;
+            } else if (acao === "ignorar") {
+                div.innerHTML = `
+                    <p>Você encontra uma casa abandonada. Entrar ou seguir em frente?</p>
+                    <button onclick="escolha4('entrar')">Entrar na casa</button>
+                    <button onclick="escolha4('seguir')">Continuar na trilha</button>
+                `;
+            }
+        }
+
+        function escolha4(decisao) {
+            const div = document.getElementById("historia");
+            switch (decisao) {
+                case 'esquivar':
+                    div.innerHTML = `
+                        <p>Você se esquiva e encontra uma espada mágica. O que fazer?</p>
+                        <button onclick="escolha5('usar')">Usar a espada</button>
+                        <button onclick="escolha5('largar')">Deixar no chão</button>
+                    `;
+                    break;
+                case 'esconder':
+                    div.innerHTML = `
+                        <p>O dragão não vê você, mas o caminho está bloqueado. Tentar escalar ou voltar?</p>
+                        <button onclick="escolha5('escalar')">Escalar</button>
+                        <button onclick="escolha5('voltar')">Voltar</button>
+                    `;
+                    break;
+                case 'ponte':
+                    div.innerHTML = `
+                        <p>A ponte quase desaba. Correr ou andar devagar?</p>
+                        <button onclick="escolha5('correr')">Correr</button>
+                        <button onclick="escolha5('devagar')">Andar devagar</button>
+                    `;
+                    break;
+                case 'nadar':
+                    div.innerHTML = `
+                        <p>Você é puxado por uma correnteza. Tentar nadar até a margem ou se deixar levar?</p>
+                        <button onclick="escolha5('margem')">Ir para a margem</button>
+                        <button onclick="escolha5('levar')">Se deixar levar</button>
+                    `;
+                    break;
+                case 'explorar':
+                    div.innerHTML = `
+                        <p>Você encontra uma criatura mágica. Conversar ou fugir?</p>
+                        <button onclick="escolha5('conversar')">Conversar</button>
+                        <button onclick="escolha5('fugir2')">Fugir</button>
+                    `;
+                    break;
+                case 'gritar':
+                    div.innerHTML = `
+                        <p>Ninguém responde, mas uma luz aparece. Seguir ou ignorar?</p>
+                        <button onclick="escolha5('seguir_luz')">Seguir a luz</button>
+                        <button onclick="escolha5('ignorar_luz')">Ignorar a luz</button>
+                    `;
+                    break;
+                case 'entrar':
+                    div.innerHTML = `
+                        <p>A casa está cheia de livros. Ler ou sair?</p>
+                        <button onclick="escolha5('ler')">Ler os livros</button>
+                        <button onclick="escolha5('sair')">Sair da casa</button>
+                    `;
+                    break;
+                case 'seguir':
+                    div.innerHTML = `
+                        <p>Você encontra uma clareira com uma árvore brilhante. Tocar ou observar?</p>
+                        <button onclick="escolha5('tocar')">Tocar a árvore</button>
+                        <button onclick="escolha5('observar')">Apenas observar</button>
+                    `;
+                    break;
+            }
+        }
+
+        function escolha5(final) {
+            const div = document.getElementById("historia");
+            let mensagem;
+
+            switch (final) {
+                case 'usar':
+                    mensagem = "Você derrota o dragão e se torna o guardião da floresta. FIM";
+                    break;
+                case 'largar':
+                    mensagem = "Você deixa a espada e o dragão foge. Você sobrevive, mas a aventura termina. FIM";
+                    break;
+                case 'escalar':
+                    mensagem = "Você escala com sucesso e encontra um vilarejo encantado. FIM";
+                    break;
+                case 'voltar':
+                    mensagem = "Você retorna para o início da floresta. FIM";
+                    break;
+                case 'correr':
+                    mensagem = "A ponte quebra, mas você salta no último segundo e se salva. FIM";
+                    break;
+                case 'devagar':
+                    mensagem = "Você cai no rio, mas é salvo por uma criatura da floresta. FIM";
+                    break;
+                case 'margem':
+                    mensagem = "Você alcança a margem e encontra um portal mágico para casa. FIM";
+                    break;
+                case 'levar':
+                    mensagem = "A correnteza leva você para uma caverna escondida cheia de tesouros. FIM";
+                    break;
+                case 'conversar':
+                    mensagem = "A criatura te dá um mapa secreto da floresta. FIM";
+                    break;
+                case 'fugir2':
+                    mensagem = "Você foge e acorda em casa, sem saber se foi real. FIM";
+                    break;
+                case 'seguir_luz':
+                    mensagem = "A luz leva você até uma vila mágica onde você é bem-vindo. FIM";
+                    break;
+                case 'ignorar_luz':
+                    mensagem = "Você se perde na escuridão e acorda no início da floresta. FIM";
+                    break;
+                case 'ler':
+                    mensagem = "Os livros contam segredos da floresta. Você se torna um sábio guardião. FIM";
+                    break;
+                case 'sair':
+                    mensagem = "Você sai da casa e decide que já teve emoção suficiente. FIM";
+                    break;
+                case 'tocar':
+                    mensagem = "A árvore te concede um desejo. Você escolhe voltar para casa em paz. FIM";
+                    break;
+                case 'observar':
+                    mensagem = "A árvore brilha e some. Você nunca saberá o que teria acontecido. FIM";
+                    break;
+            }
+
+            div.innerHTML = `<p>${mensagem}</p>`;
+        }
+    </script>
+</body>
+</html>
