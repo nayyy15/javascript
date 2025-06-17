@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jukebox</title>
+</head>
+<body>
+    <h1>Jukebox</h1>
+    <p>Selecione como está se sentindo e ouça uma música</p>
+
+    <button onclick="tocar('alegria')">Feliz</button>
+    <button onclick="tocar('tristeza')">Triste</button>
+    <button onclick="tocar('aventura')">Aventureira</button>
+    <button onclick="tocar('amor')">Romântica</button>
+    <button onclick="tocar('medo')">Medroso</button>
+    <button onclick="tocar('calma')">Calmo</button>
+    <button onclick="tocar('animacao')">Animado</button>
+    <button onclick="tocar('curiosidade')">Curioso</button>
+    <button onclick="parar()">Parar</button>
+
+    <div id="imagem" style="margin-top: 30px;">
+        <img src="" alt="" id="foto" width="300" style="display: none;">
+    </div>
+
+    <audio src="" id="audio" controls style="margin-top: 20px; display: none;"></audio>
+
+    <script>
+        function tocar(tipo) {
+            const audio = document.getElementById("audio")
+            const foto = document.getElementById("foto")
+
+            let musica = ""
+            let imagem = ""
+            let cor = ""
+
+            if (tipo === "alegria") {
+                musica = "feliz.mp3"
+                imagem = "https://i.pinimg.com/736x/a9/cb/44/a9cb446b71d0aaa7e75451cb6a926cca.jpg"
+                cor = "#C3F584" // Verde claro
+            }
+
+            if (tipo === "tristeza") {
+                musica = "triste.mp3"
+                imagem = "https://i.pinimg.com/736x/2b/23/25/2b2325e55a86f634d620048be0205edd.jpg"
+                cor = "#2D7264"
+            }
+
+            if (tipo === "aventura") {
+                musica = "aventura.mp3"
+                imagem = "https://i.pinimg.com/736x/64/e1/89/64e189580148acaa77ade9def5b268a2.jpg"
+                cor = "#17B178"
+            }
+
+            if (tipo === "amor") {
+                musica = "amor.mp3"
+                imagem = "https://i.pinimg.com/736x/15/04/d4/1504d4d7e9093031dcbc21a0486592f4.jpg"
+                cor = "#F6EC00"
+            }
+
+            if (tipo === "medo") {
+                musica = "medo.mp3"
+                imagem = "https://i.pinimg.com/736x/7b/e5/93/7be593be30385ad675a268bc6218b188.jpg"
+                cor = "#464646"
+            }
+
+            if (tipo === "calma") {
+                musica = "calmo.mp3"
+                imagem = "https://i.pinimg.com/736x/0e/ce/4b/0ece4b3c81aef11c52f9c9d72423b159.jpg"
+                cor = "#C5D0D3"
+            }
+
+            if (tipo === "animacao") {
+                musica = "animado.mp3"
+                imagem = "https://i.pinimg.com/736x/cc/92/cd/cc92cd04b5c6a16c7331d8faa6b7029f.jpg"
+                cor = "#E5EDBC"
+            }
+
+            if (tipo === "curiosidade") {
+                musica = "suspense.mp3"
+                imagem = "https://i.pinimg.com/736x/1d/13/27/1d13274705b566a987048c33a26a7cbe.jpg"
+                cor = "#BDBDBD"
+            }
+
+            document.body.style.backgroundColor = cor
+            foto.src = imagem
+            foto.style.display = "block"
+
+            audio.src = musica
+            audio.play()
+            audio.style.display = "block"
+        }
+
+        function parar() {
+            const audio = document.getElementById("audio")
+            audio.pause()
+            audio.currentTime = 0
+            audio.style.display = "none"
+
+            const foto = document.getElementById("foto")
+            foto.style.display = "none"
+
+            document.body.style.backgroundColor = "#fff"
+        }
+    </script>
+</body>
+</html>
