@@ -5,31 +5,64 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Monte seu avatar</title>
     <style>
-        body {
-            text-align: center;
+body {
+        text-align: center;
+        background-color: #fffaf0;
+        font-family: Arial, sans-serif;
+        background-size: cover;
+        background-attachment: fixed;
         }
+
+        h1 {
+            font-size: 2.5em;
+            color: #d96c80;
+            margin-bottom: 20px;
+        }
+
         .container {
             display: flex;
             justify-content: center;
             gap: 40px;
             margin-bottom: 20px;
+
         }
+
         .box {
-            background-color: white;
+            background-color: #fff;
             border-radius: 10px;
             padding: 10px;
-            box-shadow: 0px 4px 8px black;
+            box-shadow: 0px 4px 8px #d96c80;
+            width: 150px;
+            border: 2px solid #d96c80;
         }
+
+        .label {
+            font-weight: bold;
+            font-size: 1.2em;
+            margin-bottom: 8px;
+            color: #d96c80;
+        }
+
         .controle {
             display: flex;
             align-items: center;
             justify-content: center;
             margin-top: 10px;
         }
+
         .controle button {
             margin: 0 10px;
             padding: 5px 10px;
+            background-color: #ffe4b5;
+            border: 1px solid #f2ae2e;
+            border-radius: 5px;
+            cursor: pointer;
         }
+
+        .controle button:hover {
+            background-color: #d96c80;
+        }
+
         #avatar {
             display: flex;
             flex-direction: column;
@@ -37,10 +70,27 @@
             justify-content: center;
             width: 300px;
             gap: 10px;
+            background-color: #fffef6;
+            border: 2px dashed #d2b48c;
+            border-radius: 15px;
+            padding: 10px;
+            margin: 0 auto;
         }
+
         #avatar img {
-            width: 250px;
+            width: 180px;
             height: auto;
+        }
+
+        button#baixar-avatar,
+        button#baixarAvatar {
+            margin-top: 30px;
+            padding: 8px 16px;
+            font-size: 1em;
+            background-color: #ffcc7a;
+            border: 2px solid #c89c57;
+            border-radius: 8px;
+            cursor: pointer;
         }
     </style>
 </head>
